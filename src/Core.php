@@ -36,6 +36,7 @@ final class Core
      *     },
      *     filtering: array{
      *         ignore_cache_events: bool,
+     *         ignore_jobs: bool,
      *         ignore_mail: bool,
      *         ignore_notifications: bool,
      *         ignore_outgoing_requests: bool,

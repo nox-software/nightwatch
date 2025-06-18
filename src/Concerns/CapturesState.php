@@ -158,6 +158,10 @@ trait CapturesState
             return;
         }
 
+        if ($this->config['filtering']['ignore_jobs']) {
+            return;
+        }
+
         $this->sensor->queuedJob($event);
     }
 
@@ -275,6 +279,10 @@ trait CapturesState
     public function jobAttempt(JobProcessed|JobReleasedAfterException|JobFailed $event): void
     {
         if (! $this->potentiallySampling()) {
+            return;
+        }
+
+        if ($this->config['filtering']['ignore_jobs']) {
             return;
         }
 
